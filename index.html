@@ -1,64 +1,44 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sandeli's Gaming Zone</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-    </head>
-    <body>
-          <div>
-            <h1 class="font">Rock Paper Scissors</h1>
-            <br>
-          <h2 class="font">You vs Computer</h2>
-          <h3 class="font">[TAKE YOUR CHANCE]</h3>
-           </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sandeli's Gaming Zone</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="font">Rock Paper Scissors</h1>
+        <h2 class="font">You vs Computer</h2>
+        <h3 class="font">[TAKE YOUR CHANCE]</h3>
+    </header>
 
-         
-            <DIV class="hoverimage">
-                <img  class="image" src="paper-modified.png" alt="paper">
-              
-               <!-- <button  class="btn">paper</button>-->
-            
-            
-                <img class="image" style="height: 232px ,width: 232px" src="rock-modified.png "alt="rock">
-               <!--  <button   class="btn">rock</button>-->
-              
-
-            
-          
-                <img class="image" src="scissorssss-modified.png" alt="scissors">
-               <!--<button class="btn">scissors</button>--> 
-              
-            </div>  
-              
-          
+    <main>
+        <div class="hoverimage">
+            <img class="image" src="./paper-modified.png" alt="paper">
+            <img class="image" src="./rock-modified.png" alt="rock">
+            <img class="image" src="./scissorssss-modified.png" alt="scissors">
+        </div>  
         
-         
-            <div class="display">
-                <table>
-                    <tr>
-                        <td class="username">NAME</td>
-                        <tD>COMPUTER</td>
-                    </tr>
-                    <tr>
-                    <td class="user" ></td>
-                    <td class="comp"></td>
-                </tr>
-                </table>
+        <div class="scoreboard font">
+            <div class="score-column">
+                <div class="username label">PLAYER</div>
+                <div class="user choice-text">-</div>
             </div>
+            <div class="score-column">
+                <div class="label">COMPUTER</div>
+                <div class="comp choice-text">-</div>
+            </div>
+        </div>
 
-            <h3 class="result"></h3>
-            <button class="reload">RESET</button>
-       
-
-        
-        <script src="gamecode.js" ></script>
-    </body>
-</html>    
+        <h3 class="result font"></h3>
+        <button class="reload font">PLAY AGAIN</button>
+    </main>
+    
+    <script src="./gamecode.js"></script>
+</body>
+</html>
