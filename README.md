@@ -1,4 +1,4 @@
-# 🎮 Sandeli's Gaming Zone: Rock Paper Scissors
+# 🎮 Rock Paper Scissors
 
 A fun, interactive, and modern take on the classic **Rock, Paper, Scissors** game built entirely with vanilla web technologies. Play against the computer, track your results, and enjoy smooth hover animations!
 
