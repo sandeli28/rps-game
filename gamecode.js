@@ -1,59 +1,66 @@
-     function gamestart(){
-       // const rock=document.querySelector(".btnr");
-       // const paper=document.querySelector(".btnp");
-       // const scissors=document.querySelector(".btns");
-        
-        
-    //const userchoice=[rock,paper,scissors];
-       // userchoice.forEach(option=>{option.addEventListener('click',function()
-           // {
-           // winner(rock.innertext,compchoice)
+document.addEventListener("DOMContentLoaded", () => {
+    // Run the initial prompt when the page loads
+    let userInput = window.prompt("Please Enter your Name");
+    
+    // Fallback just in case the user clicks "Cancel" or leaves it blank
+    if (!userInput || userInput.trim() === "") {
+        userInput = "PLAYER";
+    }
+    
+    document.querySelector(".username").innerText = userInput.toUpperCase();
+    gamestart();
+});
 
-        //})
-   // })
-   
-   const option=document.querySelectorAll(".image");
-   option.forEach((option)=>{
-    option.addEventListener("click",function(){
-        const userchoice=this.alt;
-        const choices=['rock','paper','scissors'];
-    const compchoice=choices[Math.floor(Math.random()*choices.length)];
-        winner(userchoice,compchoice)
-
+function gamestart() {
+    const options = document.querySelectorAll(".image");
+    
+    options.forEach((option) => {
+        option.addEventListener("click", function() {
+            const userchoice = this.alt;
+            const choices = ['rock', 'paper', 'scissors'];
+            const compchoice = choices[Math.floor(Math.random() * choices.length)];
+            
+            winner(userchoice, compchoice);
+        });
     });
-   });
-    
-    
-     }
-    
-
-function winner(userchoice,compchoice){
-
-    const result=document.querySelector(".result");
-    console.log(compchoice);  
-    
-    document.querySelector(".comp").innerText=`${compchoice}`;
-    document.querySelector(".user").innerText=`${userchoice}`;
-
-    if (userchoice === compchoice) 
-        {
-         result.textContent="a tie!" ;
-    }
-    
-    else if ((userchoice === 'rock' && compchoice === 'scissors') ||
-        (userchoice === 'paper' && compchoice === 'rock') ||
-        (userchoice === 'scissors' && compchoice === 'paper')) {
-            result.textContent= 'You win!';
-    } else {
-        result.textContent= 'You lose!';
-    }
-    const reloadBtn = document.querySelector('.reload');
-    reloadBtn.innerText = 'Restart';
-        reloadBtn.style.display = 'flex'
-        reloadBtn.addEventListener('click',() => {
-            window.location.reload();
-        })
 }
-let userInput = window.prompt("Please Enter your Name");
-document.querySelector(".username").innerText=`${userInput.toUpperCase()}`;
-gamestart();
+
+function winner(userchoice, compchoice) {
+    const result = document.querySelector(".result");
+    
+    // Update the UI with choices
+    document.querySelector(".comp").innerText = compchoice;
+    document.querySelector(".user").innerText = userchoice;
+
+    // Determine Winner
+    if (userchoice === compchoice) {
+        result.textContent = "It's a Tie!";
+        result.style.color = "#555";
+    } else if (
+        (userchoice === 'rock' && compchoice === 'scissors') ||
+        (userchoice === 'paper' && compchoice === 'rock') ||
+        (userchoice === 'scissors' && compchoice === 'paper')
+    ) {
+        result.textContent = 'You Win!';
+        result.style.color = "#28a745"; // Green for win
+    } else {
+        result.textContent = 'You Lose!';
+        result.style.color = "#dc3545"; // Red for lose
+    }
+
+    // Show the Play Again button
+    const reloadBtn = document.querySelector('.reload');
+    reloadBtn.style.display = 'block';
+    
+    // Remove old event listeners to prevent multiple triggers if clicked multiple times
+    reloadBtn.replaceWith(reloadBtn.cloneNode(true));
+    const newReloadBtn = document.querySelector('.reload');
+
+    // Soft reset (No page reload)
+    newReloadBtn.addEventListener('click', () => {
+        document.querySelector(".comp").innerText = "-";
+        document.querySelector(".user").innerText = "-";
+        result.textContent = "";
+        newReloadBtn.style.display = 'none';
+    });
+}
